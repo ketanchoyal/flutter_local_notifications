@@ -10,7 +10,26 @@ enum RepeatInterval {
   daily,
 
   /// Weekly interval.
-  weekly
+  weekly,
+
+  /// BiWeekly interval
+  biWeekly,
+
+  /// Montly interval
+  /// TODO: Needs testing
+  monthly,
+
+  /// Interval of 3 months
+  /// TODO: Needs testing
+  quaterly,
+
+  /// Interval of 6 months
+  /// TODO: Needs testing
+  halfYearly,
+
+  /// Interval of a year
+  /// TODO: Needs testing
+  yearly,
 }
 
 /// Details of a pending notification that has not been delivered.
