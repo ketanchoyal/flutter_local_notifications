@@ -1,6 +1,7 @@
 // import Cocoa
 import Flutter
 import UserNotifications
+import Robin
 
 public class FlutterLocalNotificationsPlugin: NSObject, FlutterPlugin, UNUserNotificationCenterDelegate {
     
@@ -54,6 +55,11 @@ public class FlutterLocalNotificationsPlugin: NSObject, FlutterPlugin, UNUserNot
         case hourly
         case daily
         case weekly
+        case biWeekly
+        case monthly
+        case quaterly
+        case halfYearly
+        case yearly
     }
     
     var channel: FlutterMethodChannel
@@ -441,6 +447,16 @@ public class FlutterLocalNotificationsPlugin: NSObject, FlutterPlugin, UNUserNot
             return UNTimeIntervalNotificationTrigger.init(timeInterval: 60 * 60 * 24, repeats: true)
         case .weekly:
             return UNTimeIntervalNotificationTrigger.init(timeInterval: 60 * 60 * 24 * 7, repeats: true)
+        case .biWeekly:
+            return UNTimeIntervalNotificationTrigger.init(timeInterval: 60 * 60 * 24 * 14, repeats: true)
+        case .monthly:
+            return UNTimeIntervalNotificationTrigger.init(timeInterval: 60 * 60 * 24 * 30, repeats: true)
+        case .quaterly:
+            return UNTimeIntervalNotificationTrigger.init(timeInterval: 60 * 60 * 24 * 90, repeats: true)
+        case .halfYearly:
+            return UNTimeIntervalNotificationTrigger.init(timeInterval: 60 * 60 * 24 * 182, repeats: true)
+        case .yearly:
+            return UNTimeIntervalNotificationTrigger.init(timeInterval: 60 * 60 * 24 * 365, repeats: true)
         }
         
     }

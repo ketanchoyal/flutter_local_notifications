@@ -319,6 +319,18 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                     PaddedElevatedButton(
+                      buttonText: 'Repeat notification every biweekly',
+                      onPressed: () async {
+                        await _repeatNotificationBiWeekly();
+                      },
+                    ),
+                    PaddedElevatedButton(
+                      buttonText: 'Repeat notification every Month',
+                      onPressed: () async {
+                        await _repeatNotificationMonthly();
+                      },
+                    ),
+                    PaddedElevatedButton(
                       buttonText:
                           'Schedule daily 10:00:00 am notification in your '
                           'local time zone',
@@ -1124,6 +1136,33 @@ class _HomePageState extends State<HomePage> {
     await flutterLocalNotificationsPlugin.periodicallyShow(0, 'repeating title',
         'repeating body', RepeatInterval.everyMinute, platformChannelSpecifics,
         androidAllowWhileIdle: true);
+  }
+
+  Future<void> _repeatNotificationBiWeekly() async {
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails('BiWeekly repeating channel id',
+            'BiWeekly repeating channel name', 'repeating description');
+    const NotificationDetails platformChannelSpecifics =
+        NotificationDetails(android: androidPlatformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.periodicallyShow(0, 'repeating title',
+        'repeating body', RepeatInterval.biWeekly, platformChannelSpecifics,
+        androidAllowWhileIdle: true);
+  }
+
+  Future<void> _repeatNotificationMonthly() async {
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails('Monthly repeating channel id',
+            'Monthly repeating channel name', 'repeating description');
+    const NotificationDetails platformChannelSpecifics =
+        NotificationDetails(android: androidPlatformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.periodicallyShow(
+      0,
+      'repeating title',
+      'repeating body',
+      RepeatInterval.monthly,
+      platformChannelSpecifics,
+      androidAllowWhileIdle: true,
+    );
   }
 
   Future<void> _scheduleDailyTenAMNotification() async {
