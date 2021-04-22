@@ -13,9 +13,9 @@ Flutter plugin for displaying local notifications.
   s.author           = { 'Michael Bui' => 'michael@dexterx.dev' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
-  s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
+  s.dependency 'Robin', '0.98.0'
   
-  s.ios.deployment_target = '8.0'
+  s.platform = :ios, '10.0'
 end
 
