@@ -9,7 +9,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_local_notifications_platform_interface:
-    path: ../flutter_local_notifications_platform_interface
+    git:
+        url: https://github.com/ketanchoyal/flutter_local_notifications.git
+        path: flutter_local_notifications_platform_interface/
+        ref: ios-swift
+    # path: ../flutter_local_notifications_platform_interface
   platform: ^3.0.0
   timezone: ^0.7.0
 
